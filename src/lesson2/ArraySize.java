@@ -2,7 +2,7 @@ package lesson2;
 
 public class ArraySize {
     static int getArray(String[][] stringmassiv) throws MyArraySizeException, MyArrayDataException {
-        if (stringmassiv.length != 4 || stringmassiv[0].length != 4) {
+        if (stringmassiv.length == 4 && stringmassiv[0].length == 4) {
         } else {
             throw new MyArraySizeException("введена не корректная длина массива");
         }
@@ -18,4 +18,5 @@ public class ArraySize {
         }
         return sum;
     }
+
 }
