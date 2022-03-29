@@ -2,42 +2,32 @@ package Java21;
 
 public class Dz {
     public static void main(String[] args) {
-        int Stage = 0;
-
+        int stage = 0;
         Team[] team = new Team[3];
-        team[0] = new Cat("Barsik",50, 5);
-        team[1] = new Human("Pavel",1000, 3);
-        team[2] = new Robot("Valli",1000, 15);
+        team[0] = new Cat("Barsik", 50, 5);
+        team[1] = new Human("Pavel", 500, 3);
+        team[2] = new Robot("Valli", 700, 15);
 
         Treadmill treadmill = new Treadmill(300);
         Wall wall = new Wall(2);
-
-
         playMarathon(team, treadmill, wall);
     }
 
 
     public static void playMarathon(Team[] team, Treadmill treadmill, Wall wall) {
-        int Stage;
+        int stage;
         do {
-            for ( Stage = 1; Stage <=3 ; Stage++) {
-                treadmill.setLength(treadmill.getLength()*Stage);
-                wall.setHeight(wall.getHeight()*Stage);
+            for ( stage = 1; stage <=3 ; stage++) {
+                treadmill.setLength(treadmill.getLength()*stage);
+                wall.setHeight(wall.getHeight()*stage);
                 for (int i = 0; i < 3; i++) {
-                    if (team[i].getMaxRange() < treadmill.getLength()){
-                        continue;
-                    }
                     team[i].runTreadmill(treadmill);
                 }
                 for (int j = 0; j < 3; j++) {
-                    if (team[j].getMaxJump() < wall.getHeight()) {
-                        continue;
-                    }
                     team[j].jumpWall(wall);
                 }
-                System.out.println("\n" + Stage + " этап окончен" + "\n");
+                System.out.println("\n" + stage + " этап окончен" + "\n");
             }
-        } while (Stage == 3);
+        } while (stage == 3);
     }
 }
-
